@@ -1,0 +1,8 @@
+---
+- name: Copy tomcat-docker compose files
+  copy:
+    src: "tomcat-docker"
+    dest: '/opt'
+
+- name: Run compose
+  shell: 'docker-compose -f /opt/tomcat-docker/docker-compose.yaml up -d'

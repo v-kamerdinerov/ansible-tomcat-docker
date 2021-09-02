@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+
+  tomcat:
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    ports:
+      - "80:8080"
+    container_name: tomcat
+    restart: unless-stopped
+    volumes:
+      - tomcat_data:/usr/local/tomcat-docker
+      - /var/tomcat-docker/logs/:/usr/local/tomcat-docker/logs/
+    env_file:
+      - "compose.env"
+
+
+volumes:
+  tomcat_data:

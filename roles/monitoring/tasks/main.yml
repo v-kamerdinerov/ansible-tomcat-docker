@@ -1,0 +1,14 @@
+---
+- name: Create monitoring dir
+  file:
+    path: '/opt/monitoring'
+    state: directory
+    mode: 0755
+
+- name: Copy compose file
+  copy:
+    src: "docker-compose.yaml"
+    dest: '/opt/monitoring/docker-compose.yaml'
+
+- name: Run compose
+  shell: 'docker-compose -f /opt/monitoring/docker-compose.yaml up -d'

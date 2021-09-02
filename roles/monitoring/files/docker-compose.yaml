@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+
+  container-exporter:
+    container_name: container-exporter
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - GOPATH=/go
+      - APPPATH=/go/src/github.com/docker-infra/container-exporter
+    image: prom/container-exporter
+    networks:
+      - monitoring
+    ports:
+      - 9104:9104/tcp
+    restart: unless-stopped
+    volumes:
+      - /sys/fs/cgroup:/cgroup:rw
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+
+  node-exporter:
+    container_name: node-exporter
+    image: prom/node-exporter
+    networks:
+      - monitoring
+    ports:
+      - 9100:9100/tcp
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /:/rootfs:ro
+      - /sys:/host/sys:ro
+
+networks:
+  monitoring:

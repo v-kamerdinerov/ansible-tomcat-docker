@@ -1,0 +1,7 @@
+---
+- hosts: web
+  gather_facts: no
+  become: yes
+  roles:
+    - { role: monitoring, tags: common/monitoring }
+    - { role: tomcat-docker, tags: app}
