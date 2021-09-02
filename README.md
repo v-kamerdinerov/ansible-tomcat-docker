@@ -5,7 +5,7 @@ Ansible role to run the containerized version Tomcat web server and run .war app
 The role contains: 
 
  - Running monitoring stack `container_exporter/node_exporter`
- - Launching the Cassandra stack
+ - Launching web application in tomcat via docker-compose
 
 
 ## Install
