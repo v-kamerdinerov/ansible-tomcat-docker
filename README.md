@@ -43,7 +43,7 @@ This Tomcat container was security hardened according to [OWASP recommendations]
 
 ### web.xml Enhancements
 
-The following changes have been made to [web.xml](./web.xml) from the out-of-the-box version:
+The following changes have been made to [web.xml](./roles/tomcat-docker/tomcat/src/web.xml) from the out-of-the-box version:
 
 -   Added `SAMEORIGIN` anti-clickjacking option
 -   HTTP header security filter (`httpHeaderSecurity`) uncommented/enabled
@@ -55,7 +55,7 @@ The following changes have been made to [web.xml](./web.xml) from the out-of-the
 
 ### server.xml Enhancements
 
-The following changes have been made to [server.xml](./server.xml) from the out-of-the-box version:
+The following changes have been made to [server.xml](./roles/tomcat-docker/tomcat/src/server.xml) from the out-of-the-box version:
 
 -   Server version information is obscured to user via `server` attribute for all `Connector` elements
 -   `secure` attribute set to `true` for all `Connector` elements
