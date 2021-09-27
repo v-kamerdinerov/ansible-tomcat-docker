@@ -15,6 +15,5 @@ services:
     env_file:
       - "compose.env"
 
-
 volumes:
   tomcat_data:
